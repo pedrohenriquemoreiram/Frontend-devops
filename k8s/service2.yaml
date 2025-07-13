@@ -5,7 +5,8 @@ metadata:
 spec:
   selector:
     app: frontend
+  type: NodePort
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8000
+      targetPort: 80
