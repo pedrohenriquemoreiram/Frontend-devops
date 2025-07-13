@@ -2,21 +2,22 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Frontend + Backend</title>
+  <title>Frontend</title>
 </head>
 <body>
-  <h1>Frontend Funcionando</h1>
-  <button onclick="testarBackend()">Testar conexão com backend</button>
+  <h1>Frontend funcionando!</h1>
+  <p>Testando conexão com o backend:</p>
+  <button onclick="testarBackend()">Testar /db</button>
   <p id="resposta"></p>
 
   <script>
     async function testarBackend() {
       try {
-        const response = await fetch("http://192.168.1.60:8181/db");
+        const response = await fetch("http://backend/db");
         const data = await response.json();
         document.getElementById("resposta").innerText = JSON.stringify(data);
       } catch (err) {
-        document.getElementById("resposta").innerText = "Erro ao conectar ao backend.";
+        document.getElementById("resposta").innerText = "Erro ao conectar com o backend.";
       }
     }
   </script>
