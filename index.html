@@ -2,10 +2,23 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>DevOps Project</title>
+  <title>Frontend + Backend</title>
 </head>
 <body>
-  <h1>Frontend funcionando!</h1>
-  <p>Abra o /ping ou /db no backend para testar.</p>
+  <h1>Frontend Funcionando</h1>
+  <button onclick="testarBackend()">Testar conexão com backend</button>
+  <p id="resposta"></p>
+
+  <script>
+    async function testarBackend() {
+      try {
+        const response = await fetch("http://192.168.1.60:8181/db");
+        const data = await response.json();
+        document.getElementById("resposta").innerText = JSON.stringify(data);
+      } catch (err) {
+        document.getElementById("resposta").innerText = "Erro ao conectar ao backend.";
+      }
+    }
+  </script>
 </body>
 </html>
